@@ -9,7 +9,7 @@ import (
 var name string
 
 func init() {
-	flag.StringVar(&name, "name", "everyone", "the greeting object")
+	flag.StringVar(&name, "name", "everyone!", "the greeting object")
 }
 
 func main() {
