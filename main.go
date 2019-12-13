@@ -4,6 +4,8 @@ package main
 import (
 	//参数化引用包
 	"flag"
+	//lib567 is alias
+	lib567 "test_go/lib"
 )
 
 var name string
@@ -15,5 +17,6 @@ func init() {
 func main() {
 	flag.Parse()
 	//fmt.Printf("hello %s\n", name)
-	hello(name)
+	lib567.Hello(name)
+	lib567.Hello("dad")
 }
