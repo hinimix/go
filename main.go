@@ -1,26 +1,44 @@
-
 package main
 
 import (
-  "flag"
-  "fmt"
+  "image"
+    "image/color"
+    "image/png"
+  "log"
+    "math"
+    "os"
 )
 
-func getTheFlag() *string {
-  return flag.String("name", "everyone","greeting object")
-}
-
 func main() {
+ // 图片大小
+ const size = 900
 
-  var i16 int16
-  i16 = -255
-  var i8 int8
-  i8 = int8(i16)
-  fmt.Printf("i8 value:  %v!\n", i8)
-  fmt.Printf("i16 value:  %v!\n", i16)
-  fmt.Printf("error: %v!\n", string(-221))
-  var aaa rune
-  aaa = 23321
-  fmt.Println("aaa value", aaa)
+ // 根据size创建灰度图
+ pic := image.NewGray(image.Rect(0,0,size,size))
 
+
+ // 遍历每个像素
+ for x := 0; x < size; x++ {
+     for y := 0; y < size; y++ {
+         pic.SetGray(x, y, color.Gray{255})
+     }
+ }
+
+ // 从0到最大像素生成x坐标
+ for x := 0; x < size; x++ {
+     s := float64(x) * 2 * math.Pi/size
+     y := size/2 - math.Sin(s)*size/2
+     pic.SetGray(x, int(y), color.Gray{0})
+ }
+
+ // 文件操作
+ file, err := os.Create("sin.png")
+ if err != nil {
+   log.Fatal(err)
+ }
+
+ // 灰度图写入文件
+ png.Encode(file,pic)
+
+ file.Close()
 }
