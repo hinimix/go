@@ -2,94 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d43f40ff-0344-4606-a23e-747d5815005c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/main" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/dullgiulio/pingo/@v/list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/dullgiulio/pingo/@v/list.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/dullgiulio/pingo/@v/v0.0.0-20151111190101-8b1949e35b5a.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/dullgiulio/pingo/@v/v0.0.0-20151111190101-8b1949e35b5a.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/dullgiulio/pingo/@v/v0.0.0-20151111190101-8b1949e35b5a.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/dullgiulio/pingo/@v/v0.0.0-20151111190101-8b1949e35b5a.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/dullgiulio/pingo/@v/v0.0.0-20151111190101-8b1949e35b5a.ziphash" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/hyper0x/!golang_!puzzlers/@v/list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/hyper0x/!golang_!puzzlers/@v/list.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/hyper0x/!golang_!puzzlers/@v/v0.0.0-20190727034740-0dc31f97cb7f.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/hyper0x/!golang_!puzzlers/@v/v0.0.0-20190727034740-0dc31f97cb7f.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/skip2/go-qrcode/@v/list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/skip2/go-qrcode/@v/list.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/skip2/go-qrcode/@v/v0.0.0-20191027152451-9434209cb086.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/skip2/go-qrcode/@v/v0.0.0-20191027152451-9434209cb086.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/skip2/go-qrcode/@v/v0.0.0-20191027152451-9434209cb086.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/skip2/go-qrcode/@v/v0.0.0-20191027152451-9434209cb086.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/github.com/skip2/go-qrcode/@v/v0.0.0-20191027152451-9434209cb086.ziphash" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/lookup/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/lookup/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/685" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/x001/726" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/x002/207" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/x002/207.p/48" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/0/x002/211.p/200" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/1/002" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/1/006" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/1/008.p/159" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/1/008.p/163" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/download/sumdb/sum.golang.org/tile/8/2/000.p/8" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/cache/lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a/errors.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a/examples/pingo-hello-world/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a/examples/pingo-sleep/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a/examples/pingo/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a/plugin.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a/server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/dullgiulio/pingo@v0.0.0-20151111190101-8b1949e35b5a/utils.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/bitset/bitset.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/bitset/bitset_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/encoder.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/encoder_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/example_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/qrcode.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/qrcode/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/qrcode_decode_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/qrcode_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/reedsolomon/gf2_8.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/reedsolomon/gf2_8_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/reedsolomon/gf_poly.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/reedsolomon/gf_poly_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/reedsolomon/reed_solomon.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/reedsolomon/reed_solomon_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/regular_symbol.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/regular_symbol_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/symbol.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/symbol_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/version.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/mod/github.com/skip2/go-qrcode@v0.0.0-20191027152451-9434209cb086/version_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/sumdb/sum.golang.org/latest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/demo/demo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/demo/demo_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/demo/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ifactory/MyFactory.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ifactory/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ifactory/init.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/Class1.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/Class2.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/golang_qrcode.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/main" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sin.png" beforeDir="false" afterPath="$PROJECT_DIR$/sin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -269,8 +182,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/src/main/main.go</url>
-          <line>135</line>
-          <option name="timeStamp" value="14" />
+          <line>189</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

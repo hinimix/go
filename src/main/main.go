@@ -2,185 +2,243 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 )
 
-type LIST struct {
-	Data int
-	Next *LIST
-}
-
-// 遍历链表
-func showList(l *LIST) {
-	for l != nil {
-		fmt.Println(l.Data)
-		//fmt.Println(reflect.TypeOf(l.Next))
-		//fmt.Println(reflect.TypeOf(l.Data))
-		//fmt.Println(reflect.TypeOf(l))
-		l = l.Next
+// 生成长度固定的随机数组
+func generateRandomSlice(sliceName *[]int, n int) {
+	for i := 0; i < n; i++ {
+		(*sliceName)[i] = rand.Intn(10)
 	}
 }
 
-// 插入链表尾部
-func appendList(l *LIST, data LIST) {
-	var tail *LIST
-	for l.Next != nil {
-		l = l.Next
-	}
-	tail = l
-	tail.Next = &data
-	data.Next = nil
-}
-
-// 插入链表头部
-func insertList(l *LIST, data LIST) {
-	var node1 = l.Next
-	l.Next = &data
-	data.Next = node1
-}
-
-// 生成一个链表
-func generalList(name *LIST, l int) {
-	for i := 0; i <= l; i++ {
-		var tmpList LIST
-		tmpList.Data = i
-		appendList(name, tmpList)
-	}
-}
-
-// 单链表反转
-func reverceList(l *LIST) LIST {
-	var result LIST
-	// 判断当前是不是链表最后一个节点
-	for l.Next != nil {
-		l = l.Next
-		insertList(&result, *l)
-	}
-	//insertList(&result, *l)
-	return result
-}
-
-// 链表中环的检测: 判断所有链表节点的next有没有相同的，有就是有环路
-func loopCheckList(l *LIST) bool {
-	var result = false
-	nextList := make([]*LIST, 5)
-
-	var i = 0
-	for l != nil {
-		for j := 0; j <= i; j++ {
-			if nextList[j] == l {
-				//result=true
-				return true
+// 冒泡排序
+func bubbleSort(sliceName *[]int) {
+	for x := 0; x < len(*sliceName); x++ {
+		for y := x; y < len(*sliceName); y++ {
+			//相邻元素比较，如果前面比后面大，交换位置
+			if (*sliceName)[x] > (*sliceName)[y] {
+				var tmp = (*sliceName)[x]
+				(*sliceName)[x] = (*sliceName)[y]
+				(*sliceName)[y] = tmp
 			}
 		}
-		nextList[i] = l
-		l = l.Next
-		i++
 	}
-	return result
 }
 
-// 制作一个环路的链表
-func generateLoop() LIST {
-	var t1, t2, t3 LIST
-	t1.Next = &t2
-	t2.Next = &t1
-	t3.Next = &t2
-	return t1
+// 插入排序
+func insertSort(sliceName *[]int) {
+	// 如果数组<=1，不用排序
+	if len(*sliceName) <= 1 {
+		return
+	}
+	//x是未排序分组
+	for x := 1; x < len(*sliceName); x++ {
+		value := (*sliceName)[x]
+		//y是已排序分组
+		for y := 0; y < x; y++ {
+			if (*sliceName)[y] > value {
+				(*sliceName)[x] = (*sliceName)[y]
+				(*sliceName)[y] = value
+				value = (*sliceName)[x]
+			}
+		}
+	}
 }
 
-// 两个有序的链表合并
-func mergeList(l1 *LIST, l2 *LIST) LIST {
-	//var result LIST
-	for l2 != nil {
-		appendList(l1, *l2)
-		l2 = l2.Next
+// 选择排序
+func selectSort(sliceName *[]int) {
+	if len(*sliceName) <= 1 {
+		return
 	}
-	return *l1
+	// 从0开始遍历搜索最小的赋值到数组前面
+	for x := 0; x < len(*sliceName); x++ {
+		min_value := (*sliceName)[x]
+		for y := 1; y < len(*sliceName); y++ {
+			if (*sliceName)[x] > (*sliceName)[y] {
+				(*sliceName)[x] = (*sliceName)[y]
+				(*sliceName)[y] = min_value
+				min_value = (*sliceName)[y]
+			}
+		}
+	}
 }
 
-// 链表长度
-func getLengthList(l *LIST) int {
-	var count = 0
-	for l.Next != nil {
-		l = l.Next
-		count += 1
-	}
-	return count
-}
+// 归并排序
+func mergeSort(sliceName *[]int) []int {
+	length := len(*sliceName)
+	tmpHead := make([]int, length/2)
+	tmpTail := make([]int, length-length/2)
+	tmpResult := make([]int, 0)
 
-// 删除链表倒数第 n 个结点
-func deleteNNode(l *LIST, n int) bool {
-	// 执行结果
-	var result = false
-	// 链表长度
-	var length = 0
-	// 要删除的前一个结点
-	var prevNode = l
-	// 要删除的后一个结点
-	var pastNode *LIST
-	var countNode = l
-	var realDeleteCount int
+	if length > 2 {
+		// 把一个数组拆分成两个
+		for i := 0; i < length; i++ {
+			if i < length/2 {
+				tmpHead[i] = (*sliceName)[i]
+			} else {
+				tmpTail[i-length/2] = (*sliceName)[i]
+			}
+		}
+		// 递归进去排序
+		tmpHead = mergeSort(&tmpHead)
+		tmpTail = mergeSort(&tmpTail)
 
-	// 计算链表长度
-
-	length = getLengthList(countNode)
-
-	// 判断正序倒序
-	if n >= 0 {
-		realDeleteCount = n
-	} else {
-		realDeleteCount = length + n
-	}
-
-	// 寻找要删除的前一个节点
-	for i := 0; i < realDeleteCount; i++ {
-		if prevNode.Next != nil {
-			prevNode = prevNode.Next
-		} else {
-			fmt.Println("草")
+		// 两个坐标来同时控制两个数组
+		var x = 0
+		var y = 0
+		for i := 0; i < length; i++ {
+			if x >= len(tmpHead) {
+				// 如果前面数组都空了，就插入后面数组
+				tmpResult = append(tmpResult, tmpTail[y])
+				y++
+			} else if y >= len(tmpTail) {
+				// 如果后面数组都空了，就插入前面数组
+				tmpResult = append(tmpResult, tmpHead[x])
+				x++
+			} else if tmpHead[x] >= tmpTail[y] {
+				// 比较大小，小的进临时数组
+				tmpResult = append(tmpResult, tmpTail[y])
+				y++
+			} else if tmpHead[x] < tmpTail[y] {
+				tmpResult = append(tmpResult, tmpHead[x])
+				x++
+			}
 		}
 
-	}
-	// 如果是-1，直接把前一个结点下一条赋值为空
-	if n == -1 {
-		prevNode.Next = nil
-		result = true
+	} else if length < 2 {
+		tmpResult = (*sliceName)
 	} else {
-		pastNode = prevNode.Next
-		pastNode = pastNode.Next
-		prevNode.Next = pastNode
-		result = true
+		if (*sliceName)[0] > (*sliceName)[1] {
+			tmpResult = append(tmpResult, (*sliceName)[1])
+			tmpResult = append(tmpResult, (*sliceName)[0])
+		} else {
+			tmpResult = append(tmpResult, (*sliceName)[0])
+			tmpResult = append(tmpResult, (*sliceName)[1])
+		}
 	}
-	return result
+	return tmpResult
 }
 
-// 求链表的中间结点
-func middleNodeList(l *LIST) LIST {
-	var length = getLengthList(l)
-	var middleNode = length/2 + length%2
-	for i:=0;i<=middleNode;i++{
-		l = l.Next
+// 快速排序
+func quickSort(sliceName *[]int) []int {
+	var length = len(*sliceName)
+	var tmpResult = make([]int, 0)
+
+	if length >= 2 {
+		// 随机选取索引位置
+		var randomPosition = rand.Intn(length)
+		// 比索引小的数组存放位置
+		var tmpSmaller = make([]int, 0)
+		// 比索引大的数组存放位置
+		var tmpBigger = make([]int, 0)
+		var tmpMiddle = make([]int, 0)
+		// 判断当前数组的每个元素，比随机索引小的放入smaller，比随机索引大的放入bigger
+		for i := 0; i < length; i++ {
+			if (*sliceName)[i] < (*sliceName)[randomPosition] {
+				tmpSmaller = append(tmpSmaller, (*sliceName)[i])
+			} else if (*sliceName)[i] > (*sliceName)[randomPosition] {
+				tmpBigger = append(tmpBigger, (*sliceName)[i])
+			} else {
+				tmpMiddle = append(tmpMiddle, (*sliceName)[i])
+			}
+		}
+		// 递归排序
+		tmpSmaller = quickSort(&tmpSmaller)
+		tmpBigger = quickSort(&tmpBigger)
+
+		// 按顺序依次插入到tmpResult里返回，smaller, middle, bigger
+		for i := 0; i < len(tmpSmaller); i++ {
+			tmpResult = append(tmpResult, tmpSmaller[i])
+		}
+		for i := 0; i < len(tmpMiddle); i++ {
+			tmpResult = append(tmpResult, tmpMiddle[i])
+		}
+		for i := 0; i < len(tmpBigger); i++ {
+			tmpResult = append(tmpResult, tmpBigger[i])
+		}
+		// 如果长度只有1，直接返回
+	} else if length == 1 {
+		tmpResult = *sliceName
 	}
-	return *l
+	return tmpResult
+}
+
+// 计数排序
+func counterSort(sliceName *[]int) []int {
+	var bucketLength = 10
+	var bucket = make([]int, bucketLength)
+	var tmpResult = make([]int, len(*sliceName))
+
+	// 判断每个bucket的数值
+	for i := 0; i < len(*sliceName); i++ {
+		for y := 0; y < bucketLength; y++ {
+			if (*sliceName)[i] == y {
+				bucket[y]++
+			}
+		}
+	}
+
+	// 求和
+	sum := 0
+	for i := 0; i < bucketLength; i++ {
+		sum += bucket[i]
+	}
+	index := sum - 1
+	//把符合数组的值插入到tmpResult
+	for  ;index>=0;{
+		for j:= bucket[bucketLength-1]; j>0; j-- {
+			tmpResult[index] = bucketLength-1
+			index--
+		}
+		bucketLength--
+	}
+	//for i:=len(*sliceName)-1;i>=0;i--{
+	//	var index = bucket[(*sliceName)[i]]-1
+	//	tmpResult[index] = (*sliceName)[i]
+	//	bucket[(*sliceName)[i]]--
+	//}
+
+
+	return tmpResult
 }
 
 func main() {
-	var t1 LIST
-	t1.Data = -1
-	generalList(&t1, 10)
-	//insertList(&t1, LIST{5000, nil})
-	appendList(&t1, LIST{5000, nil})
-	//var t2 = reverceList(&t1)
-	//showList(&t1)
-	//showList(&t2)
-	//var t3 = generateLoop()
-	//var t3result = loopCheckList(&t3)
-	//fmt.Println(t3result)
-	//var t4 = mergeList(&t1, &t2)
-	//showList(&t1)
-	//var t5 = deleteNNode(&t1, -1)
-	//fmt.Println(t5)
-	showList(&t1)
-	var t6 = middleNodeList(&t1)
-	fmt.Println(t6.Data)
+	var n = 22
+	var randomSlice1 = make([]int, n)
+	var randomSlice2 = make([]int, n)
+	var randomSlice3 = make([]int, n)
+	var randomSlice4 = make([]int, n)
+	var randomSlice5 = make([]int, n)
+	var randomSlice6 = make([]int, n)
+	generateRandomSlice(&randomSlice1, n)
+	fmt.Println(randomSlice1)
+	bubbleSort(&randomSlice1)
+	fmt.Println("bubble sort: ", randomSlice1)
+
+	generateRandomSlice(&randomSlice2, n)
+	fmt.Println(randomSlice2)
+	insertSort(&randomSlice2)
+	fmt.Println("insert sort: ", randomSlice2)
+
+	generateRandomSlice(&randomSlice3, n)
+	fmt.Println(randomSlice3)
+	insertSort(&randomSlice3)
+	fmt.Println("select sort: ", randomSlice3)
+
+	generateRandomSlice(&randomSlice4, n)
+	fmt.Println(randomSlice4)
+	randomSlice4 = mergeSort(&randomSlice4)
+	fmt.Println("merge sort: ", randomSlice4)
+
+	generateRandomSlice(&randomSlice5, n)
+	fmt.Println(randomSlice5)
+	randomSlice5 = quickSort(&randomSlice5)
+	fmt.Println("quicksort: ", randomSlice5)
+
+	generateRandomSlice(&randomSlice6, n)
+	fmt.Println(randomSlice6)
+	randomSlice6 = counterSort(&randomSlice6)
+	fmt.Println("countersort: ", randomSlice6)
+
 }
