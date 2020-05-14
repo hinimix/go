@@ -2,133 +2,139 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"math/rand"
 )
 
-// 二叉查询树，左边小于根节点，右边大于根节点
+// 堆和堆排序
+// 堆是完全二叉树，用数组合适
+// 这里的堆都是大顶堆
 
-// 链表
-type Node struct {
-	data  int
-	left  *Node
-	right *Node
+type Heap struct {
+	// 数组，装载完全二叉树
+	data []int
+	// 数组容量
+	capacity int
+	// 数组长度
+	length int
 }
 
-// 链式存储
-func insertListBinaryTree(btree *Node, value int) {
-	var tmpNode Node
-	tmpNode.data = value
-	if (*btree).data == 0 {
-		(*btree).data = value
-	} else if value < (*btree).data {
-		if (*btree).left == nil {
-			(*btree).left = &tmpNode
-		} else {
-			insertListBinaryTree((*btree).left, value)
-		}
-	} else if value > (*btree).data {
-		if (*btree).right == nil {
-			(*btree).right = &tmpNode
-		} else {
-			insertListBinaryTree((*btree).right, value)
-		}
+// 堆化交换，自下而上
+func (h Heap) swap(i, j int) {
+	h.data[i], h.data[j] = h.data[j], h.data[i]
+}
+
+// 获得父节点索引
+func (h Heap) getParent(pos int) int {
+	if pos == 0 {
+		return 0
+	} else if pos%2 == 1 {
+		return (pos - 1) / 2
+	} else if pos%2 == 0 {
+		return (pos - 2) / 2
+	}
+	return 65535
+}
+
+// 堆化函数，迭代与父节点比对交换，直到根节点，自下而上
+func (h Heap) heapifyUp(index int) {
+	if index == 0 {
+		return
+	}
+	parentIndex := h.getParent(index)
+
+	if h.data[parentIndex] < h.data[index] {
+		h.swap(parentIndex, index)
+		h.heapifyUp(parentIndex)
 	} else {
-		fmt.Println("can not insert")
+		// 不需要换位置
+		return
 	}
-}
-func generateListBinaryTree(btree *Node) {
-	number := 20
-	for i := 0; i <= number; i++ {
-		var value = rand.Intn(100)
-		insertListBinaryTree(btree, value)
-	}
+
 }
 
-// 前序遍历链式, 打印顺序：当前节点，左子树，右子树
-func preOrderSearchList(btree *Node) {
-	if (*btree).data != 0 {
-		fmt.Println((*btree).data)
+// 堆插入
+func insertHeap(heap *Heap, value int, pos int) {
+	// 位置大于数组长度，堆满了
+	if pos > (*heap).capacity {
+		fmt.Println("heap is full")
+		return
+	}
+
+	// 新元素直接插入到结尾
+	if (*heap).data[pos] == 0 {
+		(*heap).data[pos] = value
 	} else {
-		fmt.Println("no root")
+		(*heap).data[(*heap).length] = value
 	}
 
-	if (*btree).left != nil {
-		preOrderSearchList((*btree).left)
-	}
-	if (*btree).right != nil {
-		preOrderSearchList((*btree).right)
+	(*heap).heapifyUp((*heap).length)
+	(*heap).length++
+
+}
+
+// 随机生成堆
+func generateHeap(heap *Heap) {
+	for i := 0; i < 50; i++ {
+		//fmt.Println(i)
+		randomValue := rand.Intn(100)
+		insertHeap(heap, randomValue, 0)
 	}
 }
 
-// 中序遍历链式， 打印顺序：左子树，当前节点，右子树
-func inOrderSearchList(btree *Node) {
-	if (*btree).data !=0 {
-		if (*btree).left != nil {
-			inOrderSearchList((*btree).left)
-		}
-		fmt.Println((*btree).data)
-		if(*btree).right !=nil {
-			inOrderSearchList((*btree).right)
-		}
+// 堆化，自上而下
+func (h Heap) heapifyDown(index int) {
+	if index*2+1 < h.length && h.data[index] < h.data[index*2+1] {
+		h.swap(index, index*2+1)
+		h.heapifyDown(index*2 + 1)
+	} else if index*2+2 <= h.length && h.data[index] < h.data[index*2+2] {
+		h.swap(index, index*2+2)
+		h.heapifyDown(index*2 + 2)
 	} else {
-		fmt.Println("no root")
+		return
 	}
 }
 
-// 后序遍历链式， 打印顺序， 左子树，右子树，当前节点
-func postOrderSearchList(btree *Node) {
-	if (*btree).data != 0 {
-		if (*btree).left != nil {
-			postOrderSearchList((*btree).left)
-		}
-
-		if (*btree).right != nil {
-			postOrderSearchList((*btree).right)
-		}
-
-		fmt.Println((*btree).data)
-	} else {
-		fmt.Println("no root")
+// 建堆
+func (h Heap) createHeap(){
+	for i := h.length/2; i >= 0; i-- {
+		h.heapifyDown(i)
 	}
 }
 
-
-// 求高度
-func getHight(btree *Node) int{
-	var height int
-	var leftHeight float64
-	var rightHeight float64
-	var leftPointer  = btree
-	var rightPointer = btree
-	for ; ; {
-		if leftPointer.left != nil {
-			leftPointer = leftPointer.left
-			leftHeight += 1
-		} else if rightPointer.right != nil {
-			rightPointer = rightPointer.right
-			rightHeight += 1
-		} else {
-			break
-		}
+// 堆排序
+func heapSort(heap *Heap) {
+	// 建堆, 自上而下堆化
+	(*heap).createHeap()
+	// 排序, 把大顶堆的最大值插入到最后节点，把次大值插入n-1的位置
+	for i:=(*heap).length-1; i>=1; i-- {
+		// 把堆首最大值交换到末尾
+		(*heap).swap(0, i)
+		//(*heap).data[0] = (*heap).data[(*heap).length]
+		(*heap).length --
+		(*heap).createHeap()
 	}
-
-	height = int(math.Max(leftHeight, rightHeight))
-	return height
 
 }
 
 func main() {
-	fmt.Println("starting binary tree")
-	var t1 Node
-	generateListBinaryTree(&t1)
+	//var hp = make([]int, 50)
+	var hp Heap
+	hp.capacity = 50
+	hp.data = make([]int, hp.capacity)
+	generateHeap(&hp)
+	fmt.Println(hp.data)
 
+	var data = make([]int, 15)
+	for i := 0; i < 15; i++ {
+		data[i] = rand.Intn(100)
+	}
+	fmt.Println(data)
 
-	//preOrderSearchList(&t1)
-	//inOrderSearchList(&t1)
-	postOrderSearchList(&t1)
-	fmt.Println(t1)
+	var hp1 Heap
+	hp1.data = data
+	hp1.capacity = 15
+	hp1.length = 15
 
-	height := getHight(&t1)
-	fmt.Println(height)
+	heapSort(&hp1)
+	fmt.Println(hp1.data)
 }
